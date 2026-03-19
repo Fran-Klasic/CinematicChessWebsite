@@ -14,7 +14,6 @@
 .page {
   min-height: 100vh;
   background: var(--color-bg);
-  overflow-x: hidden;
 }
 
 .bg-layer {

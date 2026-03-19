@@ -1,15 +1,19 @@
 <template>
   <PageLayout>
-    <h1 class="page-title animate__animated animate__fadeInDown">O igri Cinematic Chess</h1>
+    <h1 class="page-title animate__animated animate__fadeInDown">
+      O igri Cinematic Chess
+    </h1>
 
     <GlassSection title="Što je Cinematic Chess" :delay="2">
       <figure
         class="image-placeholder image-placeholder--section"
         aria-label="Placeholder: prikaz igre Cinematic Chess"
       >
-        <div class="image-placeholder__inner">
-          <span class="image-placeholder__label">Placeholder: prikaz igre</span>
-        </div>
+        <img
+          src="/public/images/gameInProgress.png"
+          alt="Korisničko sučelje"
+          class="image-placeholder__inner"
+        />
       </figure>
       <p>
         Cinematic Chess predstavlja računalnu šahovsku igru razvijenu s ciljem
@@ -20,10 +24,10 @@
       </p>
       <p>
         Za razliku od klasičnih digitalnih šahovskih aplikacija, koje su
-        prvenstveno usmjerene na funkcionalnost i minimalizam prikaza,
-        Cinematic Chess stavlja dodatni naglasak na audiovizualni doživljaj.
-        Time se omogućuje korisniku da šahovsku partiju ne doživljava
-        isključivo kao niz poteza, već kao strukturirani i dinamični narativ.
+        prvenstveno usmjerene na funkcionalnost i minimalizam prikaza, Cinematic
+        Chess stavlja dodatni naglasak na audiovizualni doživljaj. Time se
+        omogućuje korisniku da šahovsku partiju ne doživljava isključivo kao niz
+        poteza, već kao strukturirani i dinamični narativ.
       </p>
       <p>
         Sustav je koncipiran kao web aplikacija koja služi kao distribucijska
@@ -35,20 +39,20 @@
     <GlassSection title="Arhitektura i način rada sustava" :delay="3">
       <p>
         Arhitektura igre temelji se na jasno definiranoj podjeli odgovornosti
-        između upravljačkog, logičkog i vizualnog sloja. Logički sloj zadužen
-        je za implementaciju pravila kretanja šahovskih figura, provjeru
-        valjanosti poteza te simulaciju potencijalnih stanja partije.
+        između upravljačkog, logičkog i vizualnog sloja. Logički sloj zadužen je
+        za implementaciju pravila kretanja šahovskih figura, provjeru valjanosti
+        poteza te simulaciju potencijalnih stanja partije.
       </p>
       <p>
-        Vizualni sloj odgovoran je za prikaz šahovske ploče, animaciju figura
-        i upravljanje kamerom, dok upravljački sloj koordinira izmjenu poteza,
+        Vizualni sloj odgovoran je za prikaz šahovske ploče, animaciju figura i
+        upravljanje kamerom, dok upravljački sloj koordinira izmjenu poteza,
         inicijalizaciju igre i sinkronizaciju promjena između logike i prikaza.
       </p>
       <p>
         Posebna pažnja posvećena je odvajanju logičkih podataka od vizualnih
-        objekata unutar Unity okruženja. Time je omogućena simulacija poteza
-        nad kopijom stanja ploče, bez izravnog utjecaja na prikaz u sceni,
-        čime se povećava pouzdanost i modularnost sustava.
+        objekata unutar Unity okruženja. Time je omogućena simulacija poteza nad
+        kopijom stanja ploče, bez izravnog utjecaja na prikaz u sceni, čime se
+        povećava pouzdanost i modularnost sustava.
       </p>
     </GlassSection>
 
@@ -56,8 +60,8 @@
       <p>
         Razvoj igre proveden je u Unity razvojnome okruženju korištenjem
         programskog jezika C#. Objektno orijentirani pristup omogućio je
-        modeliranje šahovskih figura kao zasebnih klasa s definiranim
-        pravilima kretanja i pripadajućim metodama.
+        modeliranje šahovskih figura kao zasebnih klasa s definiranim pravilima
+        kretanja i pripadajućim metodama.
       </p>
       <p>
         Igra je izvožena u WebGL formatu, čime je omogućeno njezino pokretanje
@@ -76,16 +80,15 @@
       <p>
         Jedna od ključnih karakteristika sustava jest naglašena vizualna i
         kinematografska prezentacija partije. Za upravljanje kamerama i
-        prijelazima korišten je Unity alat Cinemachine, koji omogućuje
-        dinamičko praćenje figura i naglašavanje ključnih trenutaka tijekom
-        igre.
+        prijelazima korišten je Unity alat Cinemachine, koji omogućuje dinamičko
+        praćenje figura i naglašavanje ključnih trenutaka tijekom igre.
       </p>
       <p>
-        Audio komponenta implementirana je pomoću Addressables sustava, čime
-        je omogućeno dinamičko učitavanje zvučnih resursa tijekom izvođenja
-        aplikacije. Dodatno, primijenjen je vanjski alat za analizu glazbe
-        koji generira vremenske oznake ritmičkih naglasaka, čime se postiže
-        precizna sinkronizacija animacija i glazbene podloge.
+        Audio komponenta implementirana je pomoću Addressables sustava, čime je
+        omogućeno dinamičko učitavanje zvučnih resursa tijekom izvođenja
+        aplikacije. Dodatno, primijenjen je vanjski alat za analizu glazbe koji
+        generira vremenske oznake ritmičkih naglasaka, čime se postiže precizna
+        sinkronizacija animacija i glazbene podloge.
       </p>
       <p>
         Takav pristup rezultira sustavom u kojem su logika igre, vizualna

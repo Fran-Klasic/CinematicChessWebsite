@@ -5,33 +5,49 @@
         class="image-placeholder image-placeholder--hero"
         aria-label="Placeholder: hero image"
       >
-        <div class="image-placeholder__inner">
-          <span class="image-placeholder__label">Placeholder: slika projekta</span>
-        </div>
+        <img
+          src="/public/images/MainUI.png"
+          alt="Korisničko sučelje"
+          class="image-placeholder__inner"
+        />
       </figure>
       <h1>Cinematic Chess</h1>
       <p class="hero-intro">
         Cinematic Chess predstavlja računalnu šahovsku igru koja objedinjuje
         klasična pravila šaha s kinematografskim prikazom partije. Ova web
-        stranica pruža pregled projekta, pristup igri u pregledniku te
-        mogućnost preuzimanja pune verzije.
+        stranica pruža pregled projekta, pristup igri u pregledniku te mogućnost
+        preuzimanja pune verzije.
       </p>
     </div>
 
     <div class="nav-cards">
-      <RouterLink to="/o-web-stranici" class="nav-card animate__animated animate__fadeInUp animate__delay-1s">
+      <RouterLink
+        to="/o-web-stranici"
+        class="nav-card animate__animated animate__fadeInUp animate__delay-1s"
+      >
         <h2>O web stranici</h2>
         <p>Informacije o svrhi stranice, tehnologijama i arhitekturi.</p>
       </RouterLink>
-      <RouterLink to="/o-igri" class="nav-card animate__animated animate__fadeInUp animate__delay-2s">
+      <RouterLink
+        to="/o-igri"
+        class="nav-card animate__animated animate__fadeInUp animate__delay-2s"
+      >
         <h2>O igri</h2>
-        <p>Opis Cinematic Chess, arhitekture sustava i korištenih tehnologija.</p>
+        <p>
+          Opis Cinematic Chess, arhitekture sustava i korištenih tehnologija.
+        </p>
       </RouterLink>
-      <RouterLink to="/sahovska-ploca" class="nav-card animate__animated animate__fadeInUp animate__delay-3s">
+      <RouterLink
+        to="/sahovska-ploca"
+        class="nav-card animate__animated animate__fadeInUp animate__delay-3s"
+      >
         <h2>Šahovska ploča</h2>
         <p>Interaktivna demonstracija šahovske ploče u web aplikaciji.</p>
       </RouterLink>
-      <RouterLink to="/igraj" class="nav-card animate__animated animate__fadeInUp animate__delay-4s">
+      <RouterLink
+        to="/igraj"
+        class="nav-card animate__animated animate__fadeInUp animate__delay-4s"
+      >
         <h2>Igraj</h2>
         <p>Pokreni Cinematic Chess direktno u pregledniku.</p>
       </RouterLink>
@@ -115,7 +131,9 @@ h1:focus-visible {
   box-shadow: var(--shadow-lg);
   text-decoration: none;
   color: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .nav-card:hover {
