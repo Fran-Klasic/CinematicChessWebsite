@@ -4,31 +4,20 @@ import "vue3-chessboard/style.css";
 </script>
 
 <template>
-  <TheChessboard />
+  <div class="chess-preview-wrapper">
+    <TheChessboard />
+  </div>
 </template>
 
 <style scoped>
-.upload-wrapper {
+.chess-preview-wrapper {
+  max-width: 100%;
+  margin: var(--space-xl) auto 0;
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  justify-content: center;
 }
 
-.drop-zone {
-  border: 2px dashed #64748b;
-  border-radius: 12px;
-  padding: 32px;
-  text-align: center;
-  color: #cbd5f5;
-  cursor: pointer;
-}
-
-.error {
-  color: #f87171;
-}
-
-.info {
-  font-size: 1.1rem;
-  color: #e5e7eb;
+.chess-preview-wrapper > * {
+  max-width: 100%;
 }
 </style>

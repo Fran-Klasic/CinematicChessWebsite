@@ -1,51 +1,59 @@
 <template>
-  <div ref="el" class="fade" :style="style">
+  <div ref="elRef" class="fade" :style="style">
     <slot />
   </div>
 </template>
 
-<script>
-export default {
-  name: "ScrollFade",
-  props: {
-    delay: {
-      type: Number,
-      default: 0,
-    },
-  },
-  data() {
-    return { visible: false };
-  },
-  computed: {
-    style() {
-      return {
-        transitionDelay: `${this.delay * 0.1}s`,
-      };
-    },
-  },
-  mounted() {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          this.visible = true;
-          entry.target.classList.add("show");
-        }
-      },
-      { threshold: 0.15 },
-    );
+<script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
-    observer.observe(this.$refs.el);
-  },
-};
+const props = withDefaults(
+  defineProps<{
+    delay?: number;
+  }>(),
+  { delay: 0 }
+);
+
+const elRef = ref<HTMLElement | null>(null);
+
+const style = computed(() => ({
+  transitionDelay: `${props.delay * 0.1}s`,
+}));
+
+let observer: IntersectionObserver | null = null;
+let observedElement: Element | null = null;
+
+onMounted(() => {
+  if (!elRef.value) return;
+
+  observedElement = elRef.value;
+  observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry?.isIntersecting && entry.target) {
+        entry.target.classList.add("show");
+      }
+    },
+    { threshold: 0.15 }
+  );
+
+  observer.observe(observedElement);
+});
+
+onUnmounted(() => {
+  if (observer && observedElement) {
+    observer.unobserve(observedElement);
+    observer.disconnect();
+  }
+});
 </script>
 
 <style scoped>
 .fade {
   opacity: 0;
-  transform: translateY(48px);
+  transform: translateY(16px);
   transition:
-    opacity 1s ease,
-    transform 1s ease;
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .fade.show {

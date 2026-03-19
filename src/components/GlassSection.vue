@@ -1,46 +1,68 @@
 <template>
   <ScrollFade :delay="delay">
-    <section class="glass block">
+    <section :id="id" class="glass block">
       <h2>{{ title }}</h2>
       <slot />
     </section>
   </ScrollFade>
 </template>
 
-<script>
+<script setup lang="ts">
 import ScrollFade from "./ScrollFade.vue";
 
-export default {
-  name: "GlassSection",
-  components: { ScrollFade },
-  props: {
-    title: String,
-    delay: Number,
-  },
-};
+defineProps<{
+  title: string;
+  delay?: number;
+  id?: string;
+}>();
 </script>
 
 <style scoped>
 .glass {
-  background: rgba(15, 23, 42, 0.55);
+  background: var(--color-glass-bg);
   backdrop-filter: blur(14px);
-  border-radius: 20px;
-  padding: 40px 48px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-2xl);
+  box-shadow: var(--shadow-lg);
 }
 
 .block {
-  margin-bottom: 96px;
+  margin-bottom: var(--space-4xl);
 }
 
 h2 {
-  font-size: 1.9rem;
-  margin-bottom: 20px;
-  color: #f8fafc;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-lg);
+  color: var(--color-section-heading);
+}
+
+h2:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 p {
-  font-size: 1.25rem;
-  color: #dbeafe;
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .glass {
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .block {
+    margin-bottom: var(--space-3xl);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .glass {
+    padding: var(--space-md) var(--space-lg);
+  }
 }
 </style>
